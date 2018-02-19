@@ -46,6 +46,10 @@
                 </ul>
 
 
+                <a href="{{route('home.index')}}"
+                   class="reset">Reset all filters</a><br>
+
+
             </div>
             <div class="col-sm-9">
                 <ul class="widget-products">

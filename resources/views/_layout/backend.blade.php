@@ -53,7 +53,7 @@
             <hr>
             <ul class="nav nav-stacked">
                 <li class="active">
-                    <a href="{{ url('admin/motorcycles') }}" target="ext">Motorcycles</a>
+                    <a href="{{ url('admin/motorcycles') }}">Motorcycles</a>
                 </li>
                 <li>
                     <a href="{{ url('admin/users') }}">Users</a>

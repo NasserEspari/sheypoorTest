@@ -77,3 +77,17 @@
     margin: 70px auto;
 }
 
+a.reset {
+    margin: 40px 0;
+    text-align: center;
+    background-color: #4878a0;
+    color: #fff;
+    padding: 13px;
+    display: block;
+    border: 1px solid #2a689e;
+    text-decoration: none;
+}
+
+a.reset:hover {
+    background-color: #6f9fc7;
+}

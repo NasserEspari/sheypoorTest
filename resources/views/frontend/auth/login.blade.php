@@ -28,10 +28,7 @@
                         <button class="btn btn-lg btn-primary btn-block" type="submit">
                             Sign in
                         </button>
-                        <label class="checkbox pull-left">
-                            <input type="checkbox" value="remember-me">
-                            Remember me
-                        </label>
+
                     </form>
                 </div>
             </div>
