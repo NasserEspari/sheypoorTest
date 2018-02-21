@@ -16,5 +16,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call(ColorTableSeeder::class);
         $this->command->info('Color table seeded!');
+
+        $this->call(MotorcycleTableSeeder::class);
+        $this->command->info('Motorcycle table seeded!');
     }
 }
