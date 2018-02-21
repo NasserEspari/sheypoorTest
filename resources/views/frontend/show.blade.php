@@ -6,28 +6,28 @@
 
     <div class="container">
         <div class="row">
-            <img src="{{  asset($motorcycle->img_path) }}">
+            <img src="{{  asset($motorcycle->img_path) }}" class="img">
             <table>
                 <tr>
                     <th>Name :</th>
-                    <th>{{ $motorcycle->name  }}</th>
+                    <th class="name">{{ $motorcycle->name  }}</th>
                 </tr>
                 <tr>
                     <th>Model :</th>
-                    <th>{{ $motorcycle->model  }}</th>
+                    <th class="model">{{ $motorcycle->model  }}</th>
                 </tr>
                 <tr>
                     <th>CC :</th>
-                    <th>{{ $motorcycle->cc  }}</th>
+                    <th class="cc">{{ $motorcycle->cc  }}</th>
                 </tr>
                 <tr>
                     <th>Weight:</th>
-                    <th>{{ $motorcycle->weight  }}</th>
+                    <th class="weight">{{ $motorcycle->weight  }}</th>
                 </tr>
                 <tr>
                     <th>Color :</th>
                     @if($motorcycle->color)
-                        <th>{{ $motorcycle->color->name  }}</th>
+                        <th class="color">{{ $motorcycle->color->name  }}</th>
 
                     @else
                         <th></th>

@@ -3,13 +3,14 @@
 
 @section('body')
 
-    <span>Edit</span>
-    /
+    <span>
+        <a href="{{ url('/admin/motorcycles/'.$motorcycle->id.'/edit') }}" class="btn btn-primary">Edit</a>
+    </span>
     <span>
         <form action="{{url('/admin/motorcycles/'.$motorcycle->id)}}" method="post">
             {{csrf_field()}}
             {{method_field('DELETE')}}
-            <input type="submit" value="Delete">
+            <input type="submit" value="Delete" class="btn btn-danger">
         </form>
     </span>
     <hr>
