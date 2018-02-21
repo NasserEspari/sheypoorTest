@@ -75,7 +75,7 @@
 <footer class="text-center">This Bootstrap 3 dashboard layout is compliments of <a
             href="http://www.bootply.com/85850"><strong>Bootply.com</strong></a></footer>
 <!-- script references -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 <script src="{{asset('js/backend/bootstrap.min.js')}}"></script>
 <script src="{{asset('js/backend/scripts.js')}}"></script>
 </body>

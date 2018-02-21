@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Color;
 use App\Http\Requests\Backend\CreateMotorcyclesRequest;
+use App\Http\Requests\Backend\EditMotorcyclesRequest;
 use App\Motorcycle;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -65,7 +66,6 @@ class MotorcyclesController extends Controller
     public function show($id)
     {
         $motorcycle = Motorcycle::findOrFail($id);
-
         return view('backend.motorcycles.show', compact('motorcycle'));
     }
 
@@ -77,7 +77,9 @@ class MotorcyclesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $motorcycle = Motorcycle::findOrFail($id);
+        $colors = Color::all();
+        return view('backend.motorcycles.edit', compact('motorcycle', 'colors'));
     }
 
     /**
@@ -87,9 +89,33 @@ class MotorcyclesController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EditMotorcyclesRequest $request, $id)
     {
-        //
+        $motorcycle = Motorcycle::findOrFail($id);
+
+        // check delete old image or not
+        if ($request->state_img == 1) {
+
+            Storage::disk('uploads')->delete($motorcycle->img_path);
+            $path = Storage::disk('uploads')->putFile('public/motorcycles', $request->image);
+
+        } else {
+            $path = $motorcycle->img_path;
+        }
+
+
+        $motorcycle->name = $request->name;
+        $motorcycle->model = $request->model;
+        $motorcycle->cc = $request->cc;
+        $motorcycle->color_id = $request->color;
+        $motorcycle->weight = $request->weight;
+        $motorcycle->price = $request->price;
+        $motorcycle->img_path = $path;
+        $motorcycle->save();
+
+
+        return back()->with('success', 'Update successfully ...');
+
     }
 
     /**
@@ -103,6 +129,6 @@ class MotorcyclesController extends Controller
         $motorcycle = Motorcycle::findOrFail($id);
         $motorcycle->delete();
         Storage::disk('uploads')->delete($motorcycle->img_path);
-        return redirect('/admin/motorcycles')->with('success', 'motorcycle ' . $motorcycle->name . ' Deleted ...');
+        return redirect(' / admin / motorcycles')->with('success', 'motorcycle ' . $motorcycle->name . ' Deleted ...');
     }
 }

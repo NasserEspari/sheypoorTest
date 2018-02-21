@@ -11,7 +11,6 @@ class CestShowPostCest
         $I->wantTo('show page');
 
         $I->amOnPage('/');
-
         $I->click('.widget-products li:first-child > a');
         $I->seeElement('img');
     }
